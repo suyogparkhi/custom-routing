@@ -13,9 +13,9 @@ def string_to_coord(s):
     lat, lon = map(float, s.split(','))
     return (lat, lon)
 
-def fetch_delhi_roads():
+def fetch_roads():
     """
-    Fetch road data from Overpass API for Delhi
+    Fetch road data from Overpass API
     """
     overpass_url = "https://overpass-api.de/api/interpreter"
     overpass_query = """
@@ -119,7 +119,7 @@ def save_routing_table(routing_table, filename):
 def main():
     try:
         print("Fetching road data...")
-        data = fetch_delhi_roads()
+        data = fetch_roads()
         
         print("Creating road network graph...")
         G = create_road_graph(data)
